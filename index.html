@@ -91,7 +91,7 @@
 
         /* CONTAINER */
         .container {
-            max-width: 1200px; /* Un peu plus large pour la grille */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 20px;
         }
@@ -115,10 +115,10 @@
             text-align: center;
         }
 
-        /* GRILLE PROJETS */
+        /* GRILLES PROJETS */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Cartes un peu plus larges */
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 5rem;
         }
@@ -131,7 +131,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            height: 100%; /* Uniformise la hauteur */
+            height: 100%;
         }
 
         .card:hover {
@@ -144,9 +144,11 @@
             height: 200px;
             background-color: #e2e8f0;
             background-size: cover;
-            background-position: top center; /* Focus sur le haut de l'image */
+            background-position: top center;
             border-bottom: 1px solid var(--border);
         }
+        
+        .web-img { background-size: cover; background-position: center; }
 
         .card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
         
@@ -188,6 +190,7 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 3rem;
+            margin-bottom: 5rem;
         }
         
         .skills-list {
@@ -199,6 +202,55 @@
         .skill-group h4 { color: var(--primary); margin-bottom: 15px; font-size: 1.1rem; }
         .skill-group ul { list-style: none; padding: 0; }
         .skill-group li { margin-bottom: 8px; color: var(--text-main); font-weight: 500; }
+
+        /* TIMELINE EXPERIENCE */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 3px solid #e2e8f0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border: 3px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            box-shadow: 0 0 0 1px #e2e8f0;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .timeline-content h3 { margin: 0 0 5px 0; font-size: 1.2rem; }
+        .company { font-weight: 600; color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95rem; }
+        .timeline-content ul { padding-left: 20px; margin-bottom: 0; color: var(--text-main); }
+        .timeline-content li { margin-bottom: 5px; }
 
         footer {
             text-align: center;
@@ -235,8 +287,8 @@
 
     <div class="container">
 
-        <span class="section-label">PORTFOLIO</span>
-        <h2 class="section-title">📂 Mes Projets Réalisés</h2>
+        <span class="section-label">DATA ENGINEERING & BI</span>
+        <h2 class="section-title">📂 Projets Data</h2>
 
         <div class="projects-grid">
 
@@ -291,8 +343,16 @@
                 </div>
             </div>
 
+        </div>
+
+
+        <span class="section-label">DÉVELOPPEMENT WEB</span>
+        <h2 class="section-title">🌐 Projets Web Fullstack</h2>
+
+        <div class="projects-grid">
+            
             <div class="card">
-                <div class="card-img-top" style="background-image: url('https://brave-emg.com/favicon.ico'); background-size: 60px; background-repeat: no-repeat; background-color: #fff;"></div>
+                <div class="card-img-top web-img" style="background-image: url('https://brave-emg.com/favicon.ico'); background-size: 60px; background-repeat: no-repeat; background-color: #fff;"></div>
                 <div class="card-body">
                     <h3>🏗️ Brave Engineering</h3>
                     <p>Site vitrine déployé en production pour une entreprise de BTP. Focus sur la performance, le SEO et l'expérience utilisateur.</p>
@@ -308,7 +368,7 @@
             </div>
 
             <div class="card">
-                <div class="card-img-top" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2970/2970785.png'); background-size: 80px; background-repeat: no-repeat; background-color: #fff;"></div>
+                <div class="card-img-top web-img" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2970/2970785.png'); background-size: 80px; background-repeat: no-repeat; background-color: #fff;"></div>
                 <div class="card-body">
                     <h3>🎨 Les Ateliers Pastels</h3>
                     <p>Site dédié à la promotion d'ateliers artistiques. Conception graphique soignée et intégration responsive.</p>
@@ -323,6 +383,7 @@
             </div>
 
         </div>
+
 
         <span class="section-label">EXPERTISE</span>
         <h2 class="section-title">🛠 Stack Technique</h2>
@@ -363,6 +424,37 @@
                         <li>JavaScript / Node.js</li>
                         <li>React.js</li>
                         <li>HTML5 / CSS3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <span class="section-label">PARCOURS</span>
+        <h2 class="section-title">💼 Expérience Professionnelle</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Avril 2025 - Juil 2025</div>
+                <div class="timeline-content">
+                    <h3>Data Engineer Junior (Stage)</h3>
+                    <div class="company">Brave Eng</div>
+                    <ul>
+                        <li>Développement de pipelines ETL d'ingestion de données via API Node.js.</li>
+                        <li>Optimisation de requêtes SQL complexes sur AWS (-40% de latence).</li>
+                        <li>Modélisation de base de données pour garantir la qualité des flux.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Juil 2023 - Nov 2023</div>
+                <div class="timeline-content">
+                    <h3>Développeuse Back-End / Data (Stage)</h3>
+                    <div class="company">InnovaxIT</div>
+                    <ul>
+                        <li>Automatisation de la collecte de données transactionnelles via API de paiement.</li>
+                        <li>Fiabilisation des flux de données Back-End entre l'application et les services externes.</li>
                     </ul>
                 </div>
             </div>
