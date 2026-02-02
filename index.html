@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class', // Active le mode sombre via une classe
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -32,21 +32,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        /* Gestion du Glassmorphism pour les deux modes */
         .glass-card {
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.7); /* Fond clair par défaut */
+            background: rgba(255, 255, 255, 0.7);
         }
-        
-        /* Style spécifique quand le mode sombre est actif */
         .dark .glass-card {
-            background: rgba(23, 23, 23, 0.6); /* Fond sombre */
+            background: rgba(23, 23, 23, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         .glass-card:hover {
             border-color: #3b82f6;
             transform: translateY(-5px);
@@ -95,7 +90,7 @@
                 <a href="https://github.com/Michkath" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 dark:text-white rounded-lg bg-white dark:bg-[#171717] border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all shadow-sm">
                     <i class="fab fa-github mr-2"></i> GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/ton-profil/" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-[#0077b5] hover:bg-[#006396] transition-all shadow-md">
+                <a href="https://www.linkedin.com/in/michkath-arike-aboudou-035a86320/" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-[#0077b5] hover:bg-[#006396] transition-all shadow-md">
                     <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
             </div>
@@ -176,8 +171,8 @@
             </div>
 
             <div class="glass-card rounded-xl overflow-hidden">
-                <div class="h-40 bg-gray-200 dark:bg-gray-800 flex items-center justify-center relative">
-                    <i class="fas fa-shopping-cart text-5xl text-gray-400 dark:text-gray-600"></i>
+                <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden relative group">
+                    <img src="https://github.com/Michkath/Olist-Sales-Analysis/blob/main/Images/Dashbord.png?raw=true" alt="Olist Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
                 </div>
                 <div class="p-6">
                     <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2" data-i18n="proj_2_title">Analyse Olist E-commerce</h3>
@@ -186,7 +181,7 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800">Power BI</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Python</span>
                     </div>
-                    <a href="#" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/Olist-Sales-Analysis" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
 
@@ -201,7 +196,7 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Scikit-Learn</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-200 border border-green-200 dark:border-green-800">Pandas</span>
                     </div>
-                    <a href="#" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
 
@@ -216,7 +211,7 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Python</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-200 border border-orange-200 dark:border-orange-800">ML</span>
                     </div>
-                    <a href="#" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/dropout-prediction-ml" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
 
@@ -237,7 +232,7 @@
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="brave_desc">Développement Fullstack.</p>
                     </div>
                 </div>
-                <a href="https://ton-lien-brave.com" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">
+                <a href="https://brave-emg.com/" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">
                     Visiter
                 </a>
             </div>
@@ -252,7 +247,7 @@
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="pastel_desc">Site créatif & Projet personnel.</p>
                     </div>
                 </div>
-                <a href="https://ton-lien-atelier-pastel.com" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">
+                <a href="https://lesatelierspastels.com/accueil" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">
                     Visiter
                 </a>
             </div>
