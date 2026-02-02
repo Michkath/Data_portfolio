@@ -77,8 +77,9 @@
     </section>
 
     <section class="py-12 px-4 mx-auto max-w-screen-xl">
-        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Compétences Techniques</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Compétences</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div class="glass-card p-6 rounded-xl">
                 <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-400 text-2xl"><i class="fas fa-server"></i></div>
                 <h3 class="text-xl font-bold text-white mb-3">Data Engineering</h3>
@@ -110,94 +111,110 @@
                 </ul>
             </div>
         </div>
+
+        <h3 class="text-xl font-bold text-white mb-4 mt-8">Atouts & Savoir-être</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="glass-card p-4 rounded-lg flex items-center space-x-3 border-l-4 border-blue-500">
+                <i class="fas fa-brain text-blue-400"></i>
+                <span class="text-gray-300 font-medium">Esprit d'analyse & Rigueur</span>
+            </div>
+            <div class="glass-card p-4 rounded-lg flex items-center space-x-3 border-l-4 border-purple-500">
+                <i class="fas fa-user-clock text-purple-400"></i>
+                <span class="text-gray-300 font-medium">Autonomie & Gestion des priorités</span>
+            </div>
+            <div class="glass-card p-4 rounded-lg flex items-center space-x-3 border-l-4 border-green-500">
+                <i class="fas fa-users text-green-400"></i>
+                <span class="text-gray-300 font-medium">Travail d'équipe & Communication</span>
+            </div>
+        </div>
     </section>
 
     <section class="py-16 px-4 mx-auto max-w-screen-xl">
         <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Projets Phares</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
             <div class="glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-all shadow-lg">
-                <div class="h-48 bg-gray-800 overflow-hidden relative group">
+                <div class="h-40 bg-gray-800 overflow-hidden relative group">
                    <img src="https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true" alt="Vinted Dashboard" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Market Intelligence Monitor</h3>
-                    <p class="text-muted text-sm mb-4">Pipeline ETL 100% autonome pour la veille concurrentielle. Scraping, nettoyage et dashboarding.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
+                    <h3 class="text-lg font-bold text-white mb-2">Market Intelligence</h3>
+                    <p class="text-muted text-xs mb-4">Pipeline ETL 100% autonome. Scraping, nettoyage et dashboarding.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-900/30 text-blue-200 border border-blue-800">Python</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-purple-900/30 text-purple-200 border border-purple-800">PostgreSQL</span>
                     </div>
-                    <a href="https://github.com/Michkath/vinted-market-monitor" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5 block text-center">Voir le code</a>
+                    <a href="https://github.com/Michkath/vinted-market-monitor" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center">Voir le code</a>
                 </div>
             </div>
+
             <div class="glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-all shadow-lg">
-                <div class="h-48 bg-gray-800 flex items-center justify-center relative">
-                    <i class="fas fa-chart-line text-6xl text-gray-600"></i>
+                <div class="h-40 bg-gray-800 flex items-center justify-center relative">
+                    <i class="fas fa-chart-line text-5xl text-gray-600"></i>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-2">Prédiction Risque Crédit</h3>
-                    <p class="text-muted text-sm mb-4">Modèle de scoring bancaire sur 300k clients. Nettoyage intensif et 85% de précision prédictive.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
+                    <h3 class="text-lg font-bold text-white mb-2">Risque Crédit</h3>
+                    <p class="text-muted text-xs mb-4">Modèle de scoring bancaire (300k clients). 85% de précision prédictive.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-900/30 text-blue-200 border border-blue-800">Scikit-Learn</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-green-900/30 text-green-200 border border-green-800">Pandas</span>
                     </div>
-                    <a href="#" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-sm px-5 py-2.5 block text-center">Voir le projet</a>
+                    <a href="#" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center">Voir le projet</a>
                 </div>
             </div>
+
+            <div class="glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-all shadow-lg">
+                <div class="h-40 bg-gray-800 flex items-center justify-center relative">
+                    <i class="fas fa-graduation-cap text-5xl text-gray-600"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-2">Décrochage Scolaire</h3>
+                    <p class="text-muted text-xs mb-4">Machine Learning pour prédire les élèves à risque. Analyse des facteurs sociaux.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-900/30 text-blue-200 border border-blue-800">Python</span>
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-orange-900/30 text-orange-200 border border-orange-800">ML</span>
+                    </div>
+                    <a href="#" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center">Voir le projet</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section class="py-16 px-4 mx-auto max-w-screen-xl">
         <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-accent pl-4">Expérience Professionnelle</h2>
         <div class="relative border-l border-gray-700 ml-4 space-y-10">                  
+            
             <div class="ml-6">
                 <span class="absolute flex items-center justify-center w-6 h-6 bg-primary rounded-full -left-3 ring-8 ring-dark"><i class="fas fa-briefcase text-xs text-white"></i></span>
-                <h3 class="text-lg font-semibold text-white">Data Automation (Stage) <span class="text-primary ml-2">@Brave Eng</span></h3>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                    <h3 class="text-lg font-semibold text-white">Data Automation (Stage) <span class="text-primary ml-2">@Brave Eng</span></h3>
+                </div>
                 <time class="block mb-2 text-sm text-muted">Avril 2025 - Août 2025</time>
-                <p class="text-gray-400 text-sm">• Conception d’APIs REST pour l’ingestion de flux médias.<br>• Optimisation SQL pour dashboards (~300ms).<br>• Automatisation AWS S3.</p>
+                <p class="text-gray-400 text-sm">• Conception d’APIs REST pour l’ingestion de flux médias.<br>• Optimisation SQL pour dashboards (~300ms).</p>
             </div>
+
             <div class="ml-6">
                 <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-dark"><i class="fas fa-code text-xs text-white"></i></span>
-                <h3 class="text-lg font-semibold text-white">Assistante Data & Dév (Alternance) <span class="text-primary ml-2">@Expertik</span></h3>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                    <h3 class="text-lg font-semibold text-white">Assistante Data (Alternance) <span class="text-primary ml-2">@Expertik</span></h3>
+                </div>
                 <time class="block mb-2 text-sm text-muted">Oct 2024 - Avril 2025</time>
-                <p class="text-gray-400 text-sm">• Maintenance de bases de données (PostgreSQL, MySQL).<br>• Flux API temps réel mobile/serveur.<br>• Scripting Python pour data quality.</p>
+                <p class="text-gray-400 text-sm">• Maintenance de bases de données (PostgreSQL, MySQL).<br>• Scripting Python pour data quality.</p>
             </div>
+
+            <div class="ml-6">
+                <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-dark"><i class="fas fa-paint-brush text-xs text-white"></i></span>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                    <h3 class="text-lg font-semibold text-white">Expérience / Projet <span class="text-primary ml-2">@Atelier Pastel</span></h3>
+                </div>
+                <time class="block mb-2 text-sm text-muted">Dates à définir</time>
+                <p class="text-gray-400 text-sm">• Participation à la création et gestion de projets créatifs.</p>
+            </div>
+
             <div class="ml-6">
                 <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-dark"><i class="fas fa-laptop-code text-xs text-white"></i></span>
-                <h3 class="text-lg font-semibold text-white">Développeur web (Stage) <span class="text-primary ml-2">@InnovaxIT</span></h3>
-                <time class="block mb-2 text-sm text-muted">Juil 2023 - Nov 2023</time>
-                <p class="text-gray-400 text-sm">• Ingestion automatisée de données financières vers MySQL.<br>• Documentation technique des flux.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-800">
-        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-purple-500 pl-4">Parcours Académique</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold text-white">Mastère Data Engineer</h3>
-                    <p class="text-primary font-medium">Ynov Campus Paris</p>
-                    <p class="text-sm text-gray-500 mb-4">Depuis Oct. 2025</p>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
+                    <h3 class="text-lg font-semibold text-white">Développeur web (Stage) <span class="text-primary ml-2">@InnovaxIT</span></h3>
                 </div>
-                <p class="text-gray-400 text-sm mt-2">Architecture Big Data, Cloud Computing, Business Intelligence, DevOps.</p>
-            </div>
-
-            <div class="glass-card p-6 rounded-xl flex flex-col justify-between">
-                <div>
-                    <h3 class="text-xl font-bold text-white">Bachelor Ingénierie logicielle</h3>
-                    <p class="text-primary font-medium">EPITECH</p>
-                    <p class="text-sm text-gray-500 mb-4">Sept. 2022 - 2025</p>
-                </div>
-                <p class="text-gray-400 text-sm mt-2">Intelligence Artificielle, Python, Algorithmique, Bases de données.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <footer class="text-center py-8 text-gray-500 text-sm bg-black">
-        <p>&copy; 2025 Michkath ABOUDOU - Fait avec du code.</p>
-    </footer>
-
-</body>
-</html>
+                <time class="block mb
