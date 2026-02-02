@@ -1,561 +1,189 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Michkath ABOUDOU, Data Engineer & Analyst. Expert en ETL, Python, SQL, Power BI et Cloud AWS. Disponible pour Alternance.">
-    <meta name="author" content="Michkath ABOUDOU">
-    <title>Michkath ABOUDOU | Portfolio Data Engineer</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Michkath ABOUDOU | Data Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        card: '#171717',
+                        primary: '#3b82f6', // Bleu électrique
+                        accent: '#8b5cf6',  // Violet électrique
+                        text: '#ededed',
+                        muted: '#a3a3a3'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2563eb;       /* Bleu moderne */
-            --primary-dark: #1d4ed8;  /* Bleu plus foncé pour hover */
-            --bg-body: #f8fafc;       /* Gris très clair */
-            --bg-card: #ffffff;       /* Blanc pur */
-            --text-main: #0f172a;     /* Noir bleuté */
-            --text-secondary: #64748b;/* Gris texte */
-            --border: #e2e8f0;        /* Bordure subtile */
-        }
-
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a { text-decoration: none; transition: all 0.2s ease; }
-
-        /* HEADER */
-        header {
-            background-color: var(--bg-card);
-            border-bottom: 1px solid var(--border);
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-        }
-
-        .profile-container { max-width: 800px; margin: 0 auto; }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            margin: 0;
-            background: -webkit-linear-gradient(45deg, #0f172a, #2563eb);
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .role {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-top: 10px;
-            font-weight: 500;
-        }
-
-        .bio {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* BOUTONS D'ACTION */
-        .social-links {
-            margin-top: 35px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .btn-primary { 
-            background-color: var(--text-main); 
-            color: white; 
-            border: 1px solid var(--text-main);
-        }
-        .btn-primary:hover { 
-            background-color: var(--primary); 
-            border-color: var(--primary);
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-        }
-        
-        .btn-outline { 
-            border: 1px solid var(--border); 
-            color: var(--text-main); 
-            background: white; 
-        }
-        .btn-outline:hover { 
-            border-color: var(--text-main); 
-            transform: translateY(-2px);
-        }
-
-        /* CONTAINER GENERAL */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 20px;
-        }
-
-        .section-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 3.5rem;
-            color: var(--text-main);
-            text-align: center;
-        }
-
-        /* GRILLES PROJETS */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 6rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary);
-        }
-
-        .card-img-top {
-            height: 200px;
-            background-color: #f1f5f9;
-            background-size: cover;
-            background-position: top center;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .web-img { background-size: cover; background-position: center; }
-
-        .card-body { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
-        
-        .card h3 { margin: 0 0 10px 0; font-size: 1.3rem; color: var(--text-main); }
-        
-        .card p { 
-            color: var(--text-secondary); 
-            font-size: 0.95rem; 
-            margin-bottom: 15px; 
-            flex-grow: 1; 
-        }
-
-        .tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0; }
-        .tech-tag {
-            background: #eff6ff;
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid #dbeafe;
-        }
-
-        .card-footer {
-            padding: 1.25rem 1.5rem;
-            border-top: 1px solid var(--border);
-            background: #fafafa;
-        }
-        
-        .link-text { 
-            font-weight: 600; 
-            font-size: 0.9rem; 
-            color: var(--text-main); 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 6px; 
-        }
-        .link-text:hover { color: var(--primary); }
-
-        /* COMPETENCES / STACK */
-        .skills-wrapper {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 3rem;
-            margin-bottom: 6rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
-        }
-        
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-        }
-        
-        .skill-group h4 { 
-            color: var(--primary); 
-            margin-bottom: 20px; 
-            font-size: 1.1rem; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
-        .skill-group ul { list-style: none; padding: 0; margin: 0; }
-        .skill-group li { 
-            margin-bottom: 10px; 
-            color: var(--text-main); 
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .skill-group li i { color: var(--text-secondary); font-size: 0.8em; }
-
-        /* TIMELINE EXPERIENCE */
-        .timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            border-left: 3px solid #e2e8f0;
-            padding-left: 40px;
-            position: relative;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-        }
-
-        .timeline-item::before {
-            content: '';
-            width: 18px;
-            height: 18px;
-            background: var(--primary);
-            border: 4px solid white;
-            border-radius: 50%;
-            position: absolute;
-            left: -51px; /* Ajustement précis */
-            top: 4px;
-            box-shadow: 0 0 0 1px #cbd5e1;
-        }
-
-        .timeline-date {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .timeline-content {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: transform 0.2s;
-        }
-        .timeline-content:hover { border-color: #cbd5e1; }
-
-        .timeline-content h3 { margin: 0 0 5px 0; font-size: 1.25rem; }
-        .company { font-weight: 600; color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95rem; }
-        .timeline-content ul { padding-left: 20px; margin-bottom: 0; color: var(--text-main); }
-        .timeline-content li { margin-bottom: 8px; }
-
-        footer {
-            text-align: center;
-            padding: 4rem 0;
-            color: var(--text-secondary);
-            border-top: 1px solid var(--border);
-            background: #fafafa;
-        }
-
-        /* RESPONSIVE MOBILE */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            header { padding: 4rem 1.5rem 3rem; }
-            
-            .social-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 12px;
-            }
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .projects-grid { grid-template-columns: 1fr; }
-            
-            .timeline { padding-left: 25px; }
-            .timeline-item::before { left: -36px; }
-            
-            .skills-list { grid-template-columns: 1fr; text-align: center; }
-            .skill-group li { justify-content: center; }
+        .glass-card {
+            background: rgba(23, 23, 23, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-dark text-text antialiased selection:bg-primary selection:text-white">
 
-    <header>
-        <div class="profile-container">
-            <h1>Michkath ABOUDOU</h1>
-            <div class="role">Data Engineer Junior | Analytics Engineer</div>
-            <p class="bio">
-                Je conçois des pipelines de données automatisés et des dashboards décisionnels pour transformer la donnée brute en stratégie. <br>
-                <strong>Disponible Immédiatement</strong>
+    <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-800 bg-dark/90 backdrop-blur">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-xl font-bold whitespace-nowrap">MA.</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <a href="mailto:michkathaboudou@gmail.com" class="text-white bg-primary hover:bg-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center transition-all shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    Me contacter
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex items-center justify-center pt-20">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white">
+                Michkath <span class="gradient-text">ABOUDOU</span>
+            </h1>
+            <p class="mb-8 text-lg font-normal text-muted lg:text-xl sm:px-16 lg:px-48">
+                Data Engineer Junior & Analytics Engineer. <br>
+                Je transforme la donnée brute en levier de croissance via des pipelines automatisés et fiables.
             </p>
-            
-            <div class="social-links">
-                <!-- <a href="cv.pdf" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-file-download"></i> Télécharger mon CV
-                </a> -->
-                
-                <a href="mailto:michkathaboudou@gmail.com" class="btn btn-outline">
-                    <i class="fas fa-paper-plane"></i> Me contacter
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <a href="https://github.com/Michkath" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-card border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-700 transition-all">
+                    <i class="fab fa-github mr-2"></i> GitHub
                 </a>
-                
-                <a href="https://github.com/Michkath" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                
-                <a href="https://www.linkedin.com/in/michkath-aboudou/" target="_blank" class="btn btn-outline">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+                <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-card border border-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-700 transition-all">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
             </div>
-        </div>
-    </header>
-
-    <div class="container">
-
-        <span class="section-label">DATA ENGINEERING & BI</span>
-        <h2 class="section-title">📂 Projets Data</h2>
-
-        <div class="projects-grid">
-
-            <div class="card">
-                <div class="card-img-top" style="background-image: url('https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true');"></div>
-                <div class="card-body">
-                    <h3>🛍️ Market Intelligence Monitor</h3>
-                    <p>Pipeline ETL End-to-End pour surveiller les prix Vinted. Scraping (Selenium), Stockage (PostgreSQL) et Visualisation (Power BI). Automatisé via CI/CD.</p>
-                    <div class="tags-container">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">GitHub Actions (CI/CD)</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://github.com/Michkath/vinted-market-monitor" target="_blank" class="link-text"><i class="fab fa-github"></i> Voir le code</a>
-                </div>
-            </div>
             
-            <div class="card">
-                <div class="card-img-top" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2666/2666505.png'); background-size: 80px; background-repeat: no-repeat; background-color: #f1f5f9;"></div>
-                <div class="card-body">
-                    <h3>💳 Prédiction Risque Crédit</h3>
-                    <p>Modèle de Machine Learning pour anticiper les défauts de paiement (300k lignes). Feature Engineering et optimisation des algorithmes.</p>
-                    <div class="tags-container">
-                        <span class="tech-tag">Scikit-Learn</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Machine Learning</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA" target="_blank" class="link-text"><i class="fab fa-github"></i> Voir le code</a>
-                </div>
+            <div class="mt-12 flex flex-wrap justify-center gap-3 opacity-80">
+                <span class="bg-gray-800 text-blue-400 text-xs font-medium px-2.5 py-0.5 rounded border border-blue-400">Python</span>
+                <span class="bg-gray-800 text-yellow-400 text-xs font-medium px-2.5 py-0.5 rounded border border-yellow-400">SQL</span>
+                <span class="bg-gray-800 text-orange-400 text-xs font-medium px-2.5 py-0.5 rounded border border-orange-400">AWS S3</span>
+                <span class="bg-gray-800 text-green-400 text-xs font-medium px-2.5 py-0.5 rounded border border-green-400">Power BI</span>
+                <span class="bg-gray-800 text-white text-xs font-medium px-2.5 py-0.5 rounded border border-gray-400">GitHub Actions</span>
             </div>
-
-            <div class="card">
-                <div class="card-img-top" style="background-image: url('https://github.com/Michkath/Olist-Sales-Analysis/blob/main/Images/Dashbord.png?raw=true');"></div>
-                <div class="card-body">
-                    <h3>🛒 Dashboard E-Commerce</h3>
-                    <p>Analyse des performances logistiques et ventes (Dataset Olist). Modélisation en étoile, nettoyage SQL et KPIs décisionnels.</p>
-                    <div class="tags-container">
-                        <span class="tech-tag">Power BI</span>
-                        <span class="tech-tag">SQL Avancé</span>
-                        <span class="tech-tag">Data Modeling</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://github.com/Michkath/Olist-Sales-Analysis" target="_blank" class="link-text"><i class="fab fa-github"></i> Voir le code</a>
-                </div>
-            </div>
-
         </div>
+    </section>
 
-
-        <span class="section-label">DÉVELOPPEMENT WEB</span>
-        <h2 class="section-title">🌐 Projets Web Fullstack</h2>
-
-        <div class="projects-grid">
-            
-            <div class="card">
-                <div class="card-img-top web-img" style="background-image: url('https://brave-emg.com/favicon.ico'); background-size: 60px; background-repeat: no-repeat; background-color: #fff;"></div>
-                <div class="card-body">
-                    <h3>🏗️ Brave Engineering</h3>
-                    <p>Site vitrine déployé en production pour une agence. Optimisation SEO et performance (Lighthouse).</p>
-                    <div class="tags-container">
-                        <span class="tech-tag">React.js</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">AWS</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://brave-emg.com/" target="_blank" class="link-text"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img-top web-img" style="background-image: url('https://cdn-icons-png.flaticon.com/512/2970/2970785.png'); background-size: 80px; background-repeat: no-repeat; background-color: #fff;"></div>
-                <div class="card-body">
-                    <h3>🎨 Les Ateliers Pastels</h3>
-                    <p>Site de promotion d'ateliers artistiques. Intégration responsive et design soigné.</p>
-                    <div class="tags-container">
-                        <span class="tech-tag">HTML/CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">UX/UI</span>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://lesatelierspastels.com/accueil" target="_blank" class="link-text"><i class="fas fa-external-link-alt"></i> Visiter le site</a>
-                </div>
-            </div>
-
-        </div>
-
-
-        <span class="section-label">EXPERTISE</span>
-        <h2 class="section-title">🛠 Stack Technique</h2>
+    <section class="py-16 px-4 mx-auto max-w-screen-xl">
+        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Projets Phares</h2>
         
-        <div class="skills-wrapper">
-            <div class="skills-list">
-                <div class="skill-group">
-                    <h4><i class="fas fa-database"></i> Data Engineering</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Pipelines ETL & Automation</li>
-                        <li><i class="fas fa-check"></i> Web Scraping (Selenium)</li>
-                        <li><i class="fas fa-check"></i> API REST (Node.js)</li>
-                        <li><i class="fas fa-check"></i> SQL Avancé (Optimisation)</li>
-                    </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <div class="glass-card rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 shadow-lg">
+                <div class="h-48 bg-gray-800 overflow-hidden relative group">
+                   <img src="https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true" alt="Vinted Dashboard" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                   <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white">ETL & BI</div>
                 </div>
-                <div class="skill-group">
-                    <h4><i class="fas fa-cloud"></i> Cloud & Ops</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> AWS (Services Data)</li>
-                        <li><i class="fas fa-check"></i> GitHub Actions (CI/CD)</li>
-                        <li><i class="fas fa-check"></i> PostgreSQL / MySQL</li>
-                        <li><i class="fas fa-check"></i> Git & Versioning</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h4><i class="fas fa-chart-line"></i> Analytics & BI</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Power BI (DAX)</li>
-                        <li><i class="fas fa-check"></i> Python (Pandas / NumPy)</li>
-                        <li><i class="fas fa-check"></i> Scikit-Learn</li>
-                        <li><i class="fas fa-check"></i> Data Storytelling</li>
-                    </ul>
-                </div>
-                <div class="skill-group">
-                    <h4><i class="fas fa-code"></i> Fullstack</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Python 3.10</li>
-                        <li><i class="fas fa-check"></i> Node.js / JavaScript</li>
-                        <li><i class="fas fa-check"></i> React.js</li>
-                        <li><i class="fas fa-check"></i> HTML5 / CSS3</li>
-                    </ul>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">Market Intelligence Monitor</h3>
+                    <p class="text-muted text-sm mb-4">
+                        Architecture d'un pipeline ETL autonome traitant +2000 articles/jour.
+                        Orchestration via GitHub Actions pour une mise à jour continue sans intervention humaine.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-blue-200 bg-blue-900/30 border border-blue-800">Python</span>
+                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-purple-200 bg-purple-900/30 border border-purple-800">PostgreSQL</span>
+                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-yellow-200 bg-yellow-900/30 border border-yellow-800">Power BI</span>
+                    </div>
+                    <a href="https://github.com/Michkath/vinted-market-monitor" target="_blank" class="text-white bg-gray-700 hover:bg-gray-600 focus:ring-4 focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none block w-full text-center">
+                        <i class="fab fa-github mr-2"></i> Voir le code
+                    </a>
                 </div>
             </div>
+
+            <div class="glass-card rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 shadow-lg">
+                <div class="h-48 bg-gray-800 overflow-hidden relative group flex items-center justify-center">
+                    <i class="fas fa-chart-line text-6xl text-gray-600 group-hover:text-primary transition-colors"></i>
+                    <div class="absolute top-2 right-2 bg-black/70 px-2 py-1 rounded text-xs text-white">Machine Learning</div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2">Prédiction Risque Crédit</h3>
+                    <p class="text-muted text-sm mb-4">
+                        Développement d'un modèle de scoring sur un dataset bancaire de 300k clients. 
+                        Pipeline de nettoyage intensif et optimisation atteignant 85% de précision prédictive.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-blue-200 bg-blue-900/30 border border-blue-800">Scikit-Learn</span>
+                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-green-200 bg-green-900/30 border border-green-800">Pandas</span>
+                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded text-red-200 bg-red-900/30 border border-red-800">Risk Mgmt</span>
+                    </div>
+                    <a href="#" class="text-white bg-gray-700 hover:bg-gray-600 focus:ring-4 focus:ring-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none block w-full text-center">
+                        <i class="fab fa-github mr-2"></i> Voir le projet
+                    </a>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-
-        <span class="section-label">PARCOURS</span>
-        <h2 class="section-title">💼 Expérience Professionnelle</h2>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-date">Avril 2025 - Août 2025</div>
-                <div class="timeline-content">
-                    <h3>Développeur Backend / Data (Stage)</h3>
-                    <div class="company">Brave Eng</div>
-                    <ul>
-                        <li>Conception de pipelines ETL d'ingestion de données via API Node.js.</li>
-                        <li>Optimisation de requêtes SQL sur AWS (Réduction de 40% de la latence).</li>
-                        <li>Modélisation de base de données pour garantir la qualité des flux.</li>
-                    </ul>
-                </div>
+    <section class="py-16 px-4 mx-auto max-w-screen-xl">
+        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-accent pl-4">Expérience</h2>
+        <div class="relative border-l border-gray-700 ml-4">                  
+            
+            <div class="mb-10 ml-6">
+                <span class="absolute flex items-center justify-center w-6 h-6 bg-primary rounded-full -left-3 ring-8 ring-dark">
+                    <i class="fas fa-database text-xs text-white"></i>
+                </span>
+                <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Data Automation (Stage) <span class="bg-blue-900 text-blue-300 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Brave Eng</span></h3>
+                <time class="block mb-2 text-sm font-normal leading-none text-muted">Avril 2025 - Août 2025</time>
+                <p class="mb-4 text-base font-normal text-gray-400">
+                    - Conception d’APIs REST pour l’ingestion de flux médias.<br>
+                    - Optimisation SQL pour dashboards décisionnels (réponse ~300ms).<br>
+                    - Pipeline AWS S3 avec contrôles qualité automatisés.
+                </p>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-date">Oct 2024 - Avril 2025</div>
-                <div class="timeline-content">
-                    <h3>Développeur Fullstack & Data (Alternance)</h3>
-                    <div class="company">Expertik</div>
-                    <ul>
-                        <li>Conception et déploiement d'API REST pour la gestion des flux mobiles.</li>
-                        <li>Maintenance et optimisation des bases de données SQL en production.</li>
-                        <li>Mise en place de bonnes pratiques pour assurer la scalabilité du code.</li>
-                    </ul>
-                </div>
+            <div class="mb-10 ml-6">
+                <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-700 rounded-full -left-3 ring-8 ring-dark">
+                    <i class="fas fa-code text-xs text-white"></i>
+                </span>
+                <h3 class="flex items-center mb-1 text-lg font-semibold text-white">Assistante Data & Dév (Alternance) <span class="bg-gray-800 text-gray-300 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">Expertik</span></h3>
+                <time class="block mb-2 text-sm font-normal leading-none text-muted">Oct 2024 - Avril 2025</time>
+                <p class="text-base font-normal text-gray-400">
+                    - Maintenance de bases PostgreSQL/MySQL.<br>
+                    - Nettoyage et maintenance des données en Python, réduisant les tâches manuelles.
+                </p>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-date">Juil 2023 - Nov 2023</div>
-                <div class="timeline-content">
-                    <h3>Développeur fullstack / Data (Stage)</h3>
-                    <div class="company">InnovaxIT</div>
-                    <ul>
-                        <li>Automatisation de la collecte de données transactionnelles via API.</li>
-                        <li>Rédaction de documentation technique et maintenance SQL.</li>
-                    </ul>
-                </div>
-            </div>
         </div>
+    </section>
 
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Michkath ABOUDOU.</p>
-        <div style="margin-top: 10px;">
-            <a href="https://www.linkedin.com/in/michkath-aboudou/" target="_blank" style="color: var(--text-secondary); margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/Michkath" target="_blank" style="color: var(--text-secondary); margin: 0 10px;"><i class="fab fa-github"></i></a>
+    <footer class="bg-card rounded-lg shadow m-4">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#" class="flex items-center mb-4 sm:mb-0">
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">MA.</span>
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-muted sm:mb-0">
+                    <li>
+                        <a href="https://github.com/Michkath" class="hover:underline mr-4 md:mr-6">GitHub</a>
+                    </li>
+                    <li>
+                        <a href="mailto:michkathaboudou@gmail.com" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center">© 2025 <a href="#" class="hover:underline">Michkath ABOUDOU</a>. All Rights Reserved.</span>
         </div>
     </footer>
 
