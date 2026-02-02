@@ -37,12 +37,11 @@
             background: rgba(23, 23, 23, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease; /* Fluidité de l'animation */
+            transition: all 0.3s ease;
         }
-        /* L'effet de bordure au survol demandé */
         .glass-card:hover {
-            border-color: #3b82f6; /* Couleur primary */
-            transform: translateY(-5px); /* Léger soulèvement */
+            border-color: #3b82f6;
+            transform: translateY(-5px);
             box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
         }
     </style>
@@ -72,12 +71,16 @@
                 Data Engineer Junior & Analytics Engineer. <br>
                 Je transforme la donnée brute en levier de croissance via des pipelines automatisés.
             </p>
+            
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                 <a href="cv-michkath.pdf" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary hover:bg-blue-700 transition-all">
-                    <i class="fas fa-download mr-2"></i> Télécharger mon CV
+                    <i class="fas fa-download mr-2"></i> Télécharger CV
                 </a>
                 <a href="https://github.com/Michkath" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-card border border-gray-700 hover:bg-gray-800 transition-all">
                     <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/ton-profil/" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 transition-all border border-blue-600">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
             </div>
         </div>
@@ -85,7 +88,6 @@
 
     <section class="py-12 px-4 mx-auto max-w-screen-xl">
         <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Compétences</h2>
-        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div class="glass-card p-6 rounded-xl">
                 <div class="w-12 h-12 bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-400 text-2xl"><i class="fas fa-server"></i></div>
@@ -118,26 +120,11 @@
                 </ul>
             </div>
         </div>
-
-        <h3 class="text-xl font-bold text-white mb-4 mt-8">Atouts & Savoir-être</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="glass-card p-4 rounded-lg flex items-center space-x-3 border-l-4 border-blue-500">
-                <i class="fas fa-brain text-blue-400"></i>
-                <span class="text-gray-300 font-medium">Esprit d'analyse & Rigueur</span>
-            </div>
-            <div class="glass-card p-4 rounded-lg flex items-center space-x-3 border-l-4 border-purple-500">
-                <i class="fas fa-user-clock text-purple-400"></i>
-                <span class="text-gray-300 font-medium">Autonomie & Gestion des priorités</span>
-            </div>
-            <div class="glass-card p-4 rounded-lg flex items-center space-x-3 border-l-4 border-green-500">
-                <i class="fas fa-users text-green-400"></i>
-                <span class="text-gray-300 font-medium">Travail d'équipe & Communication</span>
-            </div>
-        </div>
     </section>
 
-    <section class="py-16 px-4 mx-auto max-w-screen-xl">
-        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Projets Phares</h2>
+    <section class="py-16 px-4 mx-auto max-w-5xl">
+        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-primary pl-4">Projets Data</h2>
+        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             <div class="glass-card rounded-xl overflow-hidden">
@@ -233,6 +220,43 @@
                 <time class="block mb-2 text-sm text-muted">Juil 2023 - Nov 2023</time>
                 <p class="text-gray-400 text-sm">• Ingestion automatisée de données financières vers MySQL.<br>• Documentation technique des flux.</p>
             </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-800">
+        <h2 class="text-3xl font-bold mb-10 text-white border-l-4 border-pink-500 pl-4">Autres Réalisations Web</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="glass-card p-6 rounded-xl flex items-center justify-between hover:border-pink-500">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center text-white text-2xl">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Site Vitrine Brave</h3>
+                        <p class="text-sm text-gray-400">Développement Fullstack lors du stage.</p>
+                    </div>
+                </div>
+                <a href="https://ton-lien-brave.com" target="_blank" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-600">
+                    Visiter
+                </a>
+            </div>
+
+            <div class="glass-card p-6 rounded-xl flex items-center justify-between hover:border-pink-500">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-pink-900/20 rounded-lg flex items-center justify-center text-pink-400 text-2xl">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Atelier Pastel</h3>
+                        <p class="text-sm text-gray-400">Site créatif & Projet personnel.</p>
+                    </div>
+                </div>
+                <a href="https://ton-lien-atelier-pastel.com" target="_blank" class="text-white bg-gray-700 hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-600">
+                    Visiter
+                </a>
+            </div>
+
         </div>
     </section>
 
