@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr" class="dark scroll-smooth">
 <head>
@@ -13,12 +14,10 @@
                     colors: {
                         dark: '#0a0a0a',
                         light: '#f9fafb',
-                        primary: '#3b82f6', 
+                        primary: '#3b82f6',
                         accent: '#8b5cf6',
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
@@ -27,45 +26,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s, color 0.3s; }
-        .gradient-text {
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .gradient-text { background: linear-gradient(to right, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-card {
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.7);
         }
         .dark .glass-card {
-            background: rgba(23, 23, 23, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(23,23,23,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .glass-card:hover {
             border-color: #3b82f6;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(59,130,246,0.3);
         }
+        .badge-gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="bg-light text-gray-900 dark:bg-dark dark:text-[#ededed] antialiased">
 
-    <nav class="fixed w-full z-50 top-0 start-0 border-b border-gray-200 dark:border-gray-800 bg-light/90 dark:bg-dark/90 backdrop-blur transition-colors duration-300">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <span class="self-center text-xl font-bold whitespace-nowrap">MA.</span>
-            
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 top-0 border-b border-gray-200 dark:border-gray-800 bg-light/90 dark:bg-dark/90 backdrop-blur transition-colors duration-300">
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+            <span class="text-xl font-bold">MA.</span>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600 dark:text-gray-400">
+                <a href="#competences" class="hover:text-primary transition-colors" data-i18n="nav_skills">Compétences</a>
+                <a href="#projets" class="hover:text-primary transition-colors" data-i18n="nav_projects">Projets</a>
+                <a href="#formation" class="hover:text-primary transition-colors" data-i18n="nav_edu">Formation</a>
+            </div>
             <div class="flex items-center space-x-3">
-                <button onclick="toggleLanguage()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors font-bold text-sm w-10">
+                <button onclick="toggleLanguage()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 font-bold text-sm w-10">
                     <span id="lang-display">EN</span>
                 </button>
-
-                <button onclick="toggleTheme()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <button onclick="toggleTheme()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
                     <i id="theme-icon" class="fas fa-sun text-yellow-500"></i>
                 </button>
-
                 <div class="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2"></div>
-
                 <a href="CV_Data_Engineer_Michkath_ABOUDOU.pdf" target="_blank" class="hidden sm:inline-block text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-sm px-4 py-2 transition-all">
                     <i class="fas fa-file-pdf mr-2"></i> CV
                 </a>
@@ -76,63 +88,107 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <section class="min-h-[85vh] flex items-center justify-center pt-20">
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+            <div class="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full px-4 py-1.5 text-sm text-blue-600 dark:text-blue-400 mb-6">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span data-i18n="hero_badge">Disponible · Alternance Sept. 2026</span>
+            </div>
             <h1 class="mb-4 text-4xl font-extrabold tracking-tight md:text-6xl text-gray-900 dark:text-white">
                 Michkath <span class="gradient-text">ABOUDOU</span>
             </h1>
             <p class="mb-8 text-lg font-normal text-gray-600 dark:text-[#a3a3a3] lg:text-xl sm:px-16 lg:px-48" data-i18n="hero_subtitle">
-                Data Engineer | Data Analyst . <br>
+                Data Engineer · Data Analyst<br>
                 Je transforme la donnée brute en levier de croissance via des pipelines automatisés.
             </p>
-            
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-                <a href="https://github.com/Michkath" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 dark:text-white rounded-lg bg-white dark:bg-[#171717] border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all shadow-sm">
+                <a href="https://github.com/Michkath" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-gray-900 dark:text-white rounded-lg bg-white dark:bg-[#171717] border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all shadow-sm">
                     <i class="fab fa-github mr-2"></i> GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/michkath-arike-aboudou-035a86320/" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-[#0077b5] hover:bg-[#006396] transition-all shadow-md">
+                <a href="https://www.linkedin.com/in/michkath-arike-aboudou-035a86320/" target="_blank" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-white rounded-lg bg-[#0077b5] hover:bg-[#006396] transition-all shadow-md">
                     <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
-                </div>
+            </div>
         </div>
     </section>
 
-    <section class="py-12 px-4 mx-auto max-w-screen-xl">
+    <!-- COMPETENCES -->
+    <section id="competences" class="py-12 px-4 mx-auto max-w-screen-xl reveal">
         <h2 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white border-l-4 border-primary pl-4" data-i18n="skills_title">Compétences</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+
+        <!-- Grille 2x2 de catégories détaillées -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+            <!-- Data Engineering & Pipelines -->
             <div class="glass-card p-6 rounded-xl">
-                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400 text-2xl"><i class="fas fa-server"></i></div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Data Engineering</h3>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
-                    <li><i class="fas fa-check text-primary mr-2"></i> Pipelines ETL / ELT</li>
-                    <li><i class="fas fa-check text-primary mr-2"></i> GitHub Actions (CI/CD)</li>
-                    <li><i class="fas fa-check text-primary mr-2"></i> AWS S3</li>
-                    <li><i class="fas fa-check text-primary mr-2"></i> Data Quality</li>
-                </ul>
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400 text-lg shrink-0"><i class="fas fa-server"></i></div>
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white">Data Engineering & Pipelines</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">ETL / ELT Python</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">GitHub Actions (CI/CD)</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">AWS S3</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">Docker</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">Data Quality</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">KNIME</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">API REST (Flask)</span>
+                </div>
             </div>
+
+            <!-- Langages & Bases de données -->
             <div class="glass-card p-6 rounded-xl">
-                <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4 text-purple-600 dark:text-purple-400 text-2xl"><i class="fas fa-code"></i></div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Dev & SQL</h3>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
-                    <li><i class="fas fa-check text-accent mr-2"></i> Python (Pandas)</li>
-                    <li><i class="fas fa-check text-accent mr-2"></i> PostgreSQL / MySQL</li>
-                    <li><i class="fas fa-check text-accent mr-2"></i> Optimisation SQL</li>
-                    <li><i class="fas fa-check text-accent mr-2"></i> Scikit-learn</li>
-                </ul>
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400 text-lg shrink-0"><i class="fas fa-code"></i></div>
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white">Langages & Bases de données</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">Python (Pandas, NumPy)</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">SQL (avancé)</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">PostgreSQL</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">MySQL</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">JavaScript / Node.js</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">HTML / CSS</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">Git / GitHub</span>
+                </div>
             </div>
+
+            <!-- BI & Visualisation -->
             <div class="glass-card p-6 rounded-xl">
-                <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4 text-green-600 dark:text-green-400 text-2xl"><i class="fas fa-chart-pie"></i></div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">BI & Viz</h3>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> Power BI (DAX)</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> Tableaux de bord</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> Tableau</li>
-                    <li><i class="fas fa-check text-green-500 mr-2"></i> Storytelling</li>
-                </ul>
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center text-green-600 dark:text-green-400 text-lg shrink-0"><i class="fas fa-chart-pie"></i></div>
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white">BI & Visualisation</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">Power BI (DAX)</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">Tableau</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">PowerQuery</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">Excel (avancé)</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">Dashboards interactifs</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800">Data Storytelling</span>
+                </div>
             </div>
+
+            <!-- IA & Analyse -->
+            <div class="glass-card p-6 rounded-xl">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-600 dark:text-orange-400 text-lg shrink-0"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white">IA & Analyse prédictive</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800">Scikit-learn</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800">Machine Learning</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800">Statistiques appliquées</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800">Scoring / Prédiction</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800">IA Générative</span>
+                    <span class="text-xs font-semibold py-1 px-3 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800">Jupyter Notebook</span>
+                </div>
+            </div>
+
         </div>
 
+        <!-- Atouts -->
         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 border-l-4 border-green-500 pl-4" data-i18n="soft_skills_title">Atouts & Savoir-être</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass-card p-4 rounded-lg flex items-center space-x-3">
@@ -150,11 +206,37 @@
         </div>
     </section>
 
-    <section class="py-16 px-4 mx-auto max-w-5xl">
+    <!-- PROJETS -->
+    <section id="projets" class="py-16 px-4 mx-auto max-w-5xl reveal">
         <h2 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white border-l-4 border-primary pl-4" data-i18n="projects_title">Projets Data</h2>
-        
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
+
+            <!-- TourismeData — PROJET PRIMÉ -->
+            <div class="glass-card rounded-xl overflow-hidden md:col-span-2 border-2 border-yellow-400/50 dark:border-yellow-500/30 shadow-[0_0_20px_rgba(245,158,11,0.15)]">
+                <div class="h-44 bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden relative flex items-center justify-center">
+                    <div class="text-center text-white px-6">
+                        <i class="fas fa-map-marked-alt text-5xl mb-3 opacity-80"></i>
+                        <p class="text-sm font-medium opacity-70">Data Platform · ETL · Power BI · Docker · API REST</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">TourismeData — Plateforme d'analyse touristique</h3>
+                        <span class="badge-gold ml-3 shrink-0"><i class="fas fa-trophy text-xs"></i> Projet primé 2026</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-[#a3a3a3] text-sm mb-4">Pipeline ETL complet sur les données touristiques françaises open data. Architecture Docker Compose full-stack : PostgreSQL, ETL Python, API REST Flask, frontend React. Dashboards Power BI et analyse de +21 000 hébergements.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Python</span>
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-200 border border-purple-200 dark:border-purple-800">PostgreSQL</span>
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800">Power BI</span>
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-200 border border-cyan-200 dark:border-cyan-800">Docker</span>
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-200 border border-green-200 dark:border-green-800">Flask API</span>
+                    </div>
+                    <a href="https://github.com/Michkath" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 inline-block transition-colors">Voir le projet</a>
+                </div>
+            </div>
+
+            <!-- Monitoring Stocks -->
             <div class="glass-card rounded-xl overflow-hidden shadow-[0_0_15px_rgba(59,130,246,0.15)] dark:border-blue-500/30">
                 <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden relative group">
                     <img src="img/Workflow_View.png" alt="KNIME Workflow" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
@@ -167,10 +249,11 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600">Batch Script</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-200 border border-red-200 dark:border-red-800">SMTP</span>
                     </div>
-                    <a href="https://github.com/Michkath/KNIME-ETL-Pipeline" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/KNIME-ETL-Pipeline" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
 
+            <!-- Market Intelligence -->
             <div class="glass-card rounded-xl overflow-hidden">
                 <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden relative group">
                    <img src="https://github.com/Michkath/vinted-market-monitor/blob/main/dashbord.png?raw=true" alt="Vinted Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
@@ -182,10 +265,11 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Python</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-200 border border-purple-200 dark:border-purple-800">SQL</span>
                     </div>
-                    <a href="https://github.com/Michkath/vinted-market-monitor" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_code">Voir le code</a>
+                    <a href="https://github.com/Michkath/vinted-market-monitor" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_code">Voir le code</a>
                 </div>
             </div>
 
+            <!-- Risque Crédit -->
             <div class="glass-card rounded-xl overflow-hidden">
                 <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden relative group">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Finance" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
@@ -197,10 +281,11 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Scikit-Learn</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-200 border border-green-200 dark:border-green-800">Pandas</span>
                     </div>
-                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/TP_Concept_and_techno_IA" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
 
+            <!-- Décrochage Scolaire -->
             <div class="glass-card rounded-xl overflow-hidden">
                 <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden relative group">
                     <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000&auto=format&fit=crop" alt="Education" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
@@ -212,11 +297,12 @@
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Python</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-200 border border-orange-200 dark:border-orange-800">ML</span>
                     </div>
-                    <a href="https://github.com/Michkath/dropout-prediction-ml" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/dropout-prediction-ml" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
-            
-             <div class="glass-card rounded-xl overflow-hidden">
+
+            <!-- Olist -->
+            <div class="glass-card rounded-xl overflow-hidden">
                 <div class="h-40 bg-gray-200 dark:bg-gray-800 overflow-hidden relative group">
                     <img src="https://github.com/Michkath/Olist-Sales-Analysis/blob/main/Images/Dashbord.png?raw=true" alt="Olist Dashboard" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity">
                 </div>
@@ -226,264 +312,179 @@
                     <div class="flex flex-wrap gap-2 mb-4">
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800">Power BI</span>
                         <span class="text-xs font-semibold py-1 px-2 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-200 border border-blue-200 dark:border-blue-800">Python</span>
-                        <span class="text-xs font-semibold py-1 px-2 rounded bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800">Sql</span>
+                        <span class="text-xs font-semibold py-1 px-2 rounded bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-200 border border-yellow-200 dark:border-yellow-800">SQL</span>
                     </div>
-                    <a href="https://github.com/Michkath/Olist-Sales-Analysis" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
+                    <a href="https://github.com/Michkath/Olist-Sales-Analysis" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 block text-center transition-colors" data-i18n="view_project">Voir le projet</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800">
+    <!-- AUTRES RÉALISATIONS WEB -->
+    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800 reveal">
         <h2 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white border-l-4 border-pink-500 pl-4" data-i18n="web_title">Autres Réalisations Web</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
             <div class="glass-card p-6 rounded-xl flex items-center justify-between hover:border-pink-500">
                 <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-700 dark:text-white text-2xl">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-lg flex items-center justify-center text-gray-700 dark:text-white text-2xl"><i class="fas fa-laptop-code"></i></div>
                     <div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white">Site Vitrine Brave</h3>
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="brave_desc">Développement Fullstack.</p>
                     </div>
                 </div>
-                <a href="https://brave-emg.com/" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">
-                    Visiter
-                </a>
+                <a href="https://brave-emg.com/" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">Visiter</a>
             </div>
-
             <div class="glass-card p-6 rounded-xl flex items-center justify-between hover:border-pink-500">
                 <div class="flex items-center space-x-4">
-                    <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900/20 rounded-lg flex items-center justify-center text-pink-500 dark:text-pink-400 text-2xl">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
+                    <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900/20 rounded-lg flex items-center justify-center text-pink-500 dark:text-pink-400 text-2xl"><i class="fas fa-paint-brush"></i></div>
                     <div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white">Atelier Pastel</h3>
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="pastel_desc">Site créatif & Projet personnel.</p>
                     </div>
                 </div>
-                <a href="https://lesatelierspastels.com/accueil" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">
-                    Visiter
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800">
-        <h2 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white border-l-4 border-accent pl-4" data-i18n="exp_title">Expérience Professionnelle</h2>
-        <div class="relative border-l border-gray-300 dark:border-gray-700 ml-4 space-y-10">                  
-            
-            <div class="ml-6">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-primary rounded-full -left-3 ring-8 ring-light dark:ring-dark"><i class="fas fa-briefcase text-xs text-white"></i></span>
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Data Automation (Stage) <span class="text-primary ml-2">@Brave Eng</span></h3>
-                </div>
-                <time class="block mb-2 text-sm text-gray-500 dark:text-[#a3a3a3]" data-i18n="exp_1_date">Avril 2025 - Août 2025</time>
-                <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="exp_1_desc">• Conception d’APIs REST pour l’ingestion et la distribution de flux médias.<br>• Développement de requêtes SQL optimisées pour alimenter des dashboards décisionnels (temps de réponse ~300 ms)<br>• Automatisation du pipeline d’ingestion sur AWS S3 avec contrôles de qualité garantissant la fiabilité des données</p>
-            </div>
-
-            <div class="ml-6">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-400 dark:bg-gray-700 rounded-full -left-3 ring-8 ring-light dark:ring-dark"><i class="fas fa-code text-xs text-white"></i></span>
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Assistante Data & Développement (Alternance) <span class="text-primary ml-2">@Expertik</span></h3>
-                </div>
-                <time class="block mb-2 text-sm text-gray-500 dark:text-[#a3a3a3]" data-i18n="exp_2_date">Oct 2024 - Avril 2025</time>
-                <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="exp_2_desc">• Gestion et maintenance de bases de données relationnelles (PostgreSQL, MySQL) assurant disponibilité et cohérence des données.<br>• Développement de flux API temps réel entre applications mobiles et serveur central.<br>• Nettoyage et maintenance des données en Python, réduisant significativement les opérations manuelles.</p>
-            </div>
-
-            <div class="ml-6">
-                <span class="absolute flex items-center justify-center w-6 h-6 bg-gray-400 dark:bg-gray-700 rounded-full -left-3 ring-8 ring-light dark:ring-dark"><i class="fas fa-laptop-code text-xs text-white"></i></span>
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="exp_3_title">Développeur web (Stage)</h3>
-                    <span class="text-primary ml-2 font-semibold">@InnovaxIT</span>
-                </div>
-                <time class="block mb-2 text-sm text-gray-500 dark:text-[#a3a3a3]" data-i18n="exp_3_date">Juil 2023 - Nov 2023</time>
-                <p class="text-gray-600 dark:text-gray-400 text-sm" data-i18n="exp_3_desc">• Ingestion automatisée de données financières via APIs de paiement vers MySQL.<br>• Rédaction de documentation technique sur les flux de données et procédures SQL.</p>
+                <a href="https://lesatelierspastels.com/accueil" target="_blank" class="text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-medium rounded-lg text-xs px-4 py-2 border border-gray-300 dark:border-gray-600 transition-colors" data-i18n="visit">Visiter</a>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800">
+    <!-- FORMATION -->
+    <section id="formation" class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800 reveal">
         <h2 class="text-3xl font-bold mb-10 text-gray-900 dark:text-white border-l-4 border-purple-500 pl-4" data-i18n="edu_title">Parcours Académique</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="glass-card p-6 rounded-xl">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Mastère Data Engineer</h3>
-                <p class="text-primary font-medium">Ynov Campus Paris</p>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white">Mastère Data Engineer</h3>
+                        <p class="text-primary text-sm font-medium">Ynov Campus Paris</p>
+                    </div>
+                </div>
                 <p class="text-sm text-gray-500 mb-2" data-i18n="edu_1_date">Depuis Oct. 2025</p>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">Big Data, Cloud, BI, DevOps.</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">Big Data · Cloud · BI · DevOps · Pipelines de données</p>
             </div>
             <div class="glass-card p-6 rounded-xl">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white" data-i18n="edu_2_title">Bachelor Ingénierie logicielle</h3>
-                <p class="text-primary font-medium">EPITECH</p>
-                <p class="text-sm text-gray-500 mb-2">Sept. 2022 - 2025</p>
-                <p class="text-gray-600 dark:text-gray-400 text-sm">IA, Python, Algo, BDD.</p>
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400"><i class="fas fa-laptop-code"></i></div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white" data-i18n="edu_2_title">Bachelor Ingénierie logicielle</h3>
+                        <p class="text-primary text-sm font-medium">EPITECH Bénin</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-500 mb-2">Sept. 2022 — 2025</p>
+                <p class="text-gray-600 dark:text-gray-400 text-sm">IA · Python · Algorithmique · Bases de données</p>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800">
+    <!-- CENTRES D'INTÉRÊT -->
+    <section class="py-16 px-4 mx-auto max-w-screen-xl border-t border-gray-200 dark:border-gray-800 reveal">
         <h2 class="text-2xl font-bold mb-8 text-gray-900 dark:text-white" data-i18n="interests_title">Centres d'intérêt</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
             <div class="glass-card p-5 rounded-xl flex items-center space-x-4">
-                <div class="w-10 h-10 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center text-pink-500 dark:text-pink-400">
-                    <i class="fas fa-palette"></i>
-                </div>
+                <div class="w-10 h-10 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center text-pink-500 dark:text-pink-400"><i class="fas fa-palette"></i></div>
                 <div>
                     <h4 class="text-gray-900 dark:text-white font-bold" data-i18n="int_1_title">Art & Créativité</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="int_1_desc">Peinture, Tricot, Design.</p>
                 </div>
             </div>
-
             <div class="glass-card p-5 rounded-xl flex items-center space-x-4">
-                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-500 dark:text-blue-400">
-                    <i class="fas fa-robot"></i>
-                </div>
+                <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center text-blue-500 dark:text-blue-400"><i class="fas fa-robot"></i></div>
                 <div>
                     <h4 class="text-gray-900 dark:text-white font-bold" data-i18n="int_2_title">Veille Tech</h4>
                     <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="int_2_desc">IA Générative, Data Engineering.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <footer class="text-center py-8 text-gray-500 text-sm bg-gray-100 dark:bg-black transition-colors">
-        <p>&copy; 2025 Michkath ABOUDOU - <span data-i18n="footer">Fait avec du code.</span></p>
+    <!-- FOOTER -->
+    <footer class="text-center py-8 text-gray-500 text-sm bg-gray-100 dark:bg-black transition-colors border-t border-gray-200 dark:border-gray-800">
+        <div class="flex justify-center gap-6 mb-4">
+            <a href="https://github.com/Michkath" target="_blank" class="hover:text-primary transition-colors"><i class="fab fa-github text-xl"></i></a>
+            <a href="https://www.linkedin.com/in/michkath-arike-aboudou-035a86320/" target="_blank" class="hover:text-[#0077b5] transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+            <a href="mailto:michkathaboudou@gmail.com" class="hover:text-primary transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+        </div>
+        <p>&copy; 2026 Michkath ABOUDOU — <span data-i18n="footer">Fait avec du code.</span></p>
     </footer>
 
     <script>
-        // --- GESTION DU MODE SOMBRE / CLAIR ---
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.1 });
+        reveals.forEach(r => observer.observe(r));
+
+        // Theme
         function toggleTheme() {
             const html = document.documentElement;
             const icon = document.getElementById('theme-icon');
-            
             if (html.classList.contains('dark')) {
                 html.classList.remove('dark');
-                icon.classList.remove('fa-sun', 'text-yellow-500');
-                icon.classList.add('fa-moon', 'text-gray-600');
-                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun','fa-moon');
+                icon.classList.replace('text-yellow-500','text-gray-600');
+                localStorage.setItem('theme','light');
             } else {
                 html.classList.add('dark');
-                icon.classList.remove('fa-moon', 'text-gray-600');
-                icon.classList.add('fa-sun', 'text-yellow-500');
-                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon','fa-sun');
+                icon.classList.replace('text-gray-600','text-yellow-500');
+                localStorage.setItem('theme','dark');
             }
         }
-
-        // Vérification au chargement
         if (localStorage.getItem('theme') === 'light') {
             document.documentElement.classList.remove('dark');
             const icon = document.getElementById('theme-icon');
-            icon.classList.remove('fa-sun', 'text-yellow-500');
-            icon.classList.add('fa-moon', 'text-gray-600');
+            icon.classList.replace('fa-sun','fa-moon');
+            icon.classList.replace('text-yellow-500','text-gray-600');
         }
 
-        // --- GESTION DU MULTILINGUE (FR/EN) ---
+        // i18n
         let currentLang = 'fr';
-
         const translations = {
             fr: {
-                contact_btn: "Me contacter",
-                hero_subtitle: "Data Engineer Junior | Data Analyst Junior. <br> Je transforme la donnée brute en levier de croissance via des pipelines automatisés.",
-                skills_title: "Compétences",
-                soft_skills_title: "Atouts & Savoir-être",
-                soft_1: "Esprit d'analyse & Rigueur",
-                soft_2: "Autonomie & Priorisation",
-                soft_3: "Travail d'équipe & Com.",
-                projects_title: "Projets Data",
-                proj_1_title: "Market Intelligence",
-                proj_1_desc: "Pipeline ETL 100% autonome. Scraping, nettoyage et dashboarding Power BI.",
-                view_code: "Voir le code",
-                proj_2_title: "Analyse Olist E-commerce",
-                proj_2_desc: "Analyse de la satisfaction client et KPIs logistiques. Dashboard interactif.",
-                view_project: "Voir le projet",
-                proj_3_title: "Risque Crédit",
-                proj_3_desc: "Modèle de scoring bancaire. Traitement du déséquilibre des classes (SMOTE) et interprétabilité (SHAP).",
-                proj_4_title: "Décrochage Scolaire",
-                proj_4_desc: "Prédiction précoce de l'échec scolaire. Analyse des facteurs socio-économiques pour intervention ciblée.",
-                proj_5_title: "Monitoring Stocks & Alerting",
-                proj_5_desc: "Pipeline ETL automatisé. Prévision des ruptures, suivi financier, logs et alertes emails quotidiennes (Batch).",
-                web_title: "Autres Réalisations Web",
-                brave_desc: "Développement Fullstack.",
-                visit: "Visiter",
-                pastel_desc: "Site créatif & Projet personnel.",
-                exp_title: "Expérience Professionnelle",
-                exp_1_date: "Avril 2025 - Août 2025",
-                exp_1_desc: "• Conception d’APIs REST pour l’ingestion et la distribution de flux médias.<br>• Développement de requêtes SQL optimisées pour alimenter des dashboards décisionnels (temps de réponse ~300 ms)<br>• Automatisation du pipeline d’ingestion sur AWS S3 avec contrôles de qualité garantissant la fiabilité des données",
-                exp_2_date: "Oct 2024 - Avril 2025",
-                exp_2_desc: "• Gestion et maintenance de bases de données relationnelles (PostgreSQL, MySQL) assurant disponibilité et cohérence des données.<br>• Développement de flux API temps réel entre applications mobiles et serveur central.<br>• Nettoyage et maintenance des données en Python, réduisant significativement les opérations manuelles.",
-                exp_3_title: "Développeur web (Stage)",
-                exp_3_date: "Juil 2023 - Nov 2023",
-                exp_3_desc: "• Ingestion automatisée de données financières via APIs de paiement vers MySQL.<br>• Rédaction de documentation technique sur les flux de données et procédures SQL.",
-                edu_title: "Parcours Académique",
-                edu_1_date: "Depuis Oct. 2025",
-                edu_2_title: "Bachelor Ingénierie logicielle",
-                interests_title: "Centres d'intérêt",
-                int_1_title: "Art & Créativité",
-                int_1_desc: "Peinture, Tricot, Design.",
-                int_2_title: "Veille Tech",
-                int_2_desc: "IA Générative, Data Engineering.",
-                footer: "Fait avec du code."
+                contact_btn:"Me contacter", nav_skills:"Compétences", nav_projects:"Projets", nav_edu:"Formation",
+                hero_badge:"Disponible · Alternance Sept. 2026",
+                hero_subtitle:"Data Engineer · Data Analyst<br>Je transforme la donnée brute en levier de croissance via des pipelines automatisés.",
+                skills_title:"Compétences", soft_skills_title:"Atouts & Savoir-être",
+                soft_1:"Esprit d'analyse & Rigueur", soft_2:"Autonomie & Priorisation", soft_3:"Travail d'équipe & Com.",
+                projects_title:"Projets Data",
+                proj_1_title:"Market Intelligence", proj_1_desc:"Pipeline ETL 100% autonome. Scraping, nettoyage et dashboarding Power BI.", view_code:"Voir le code",
+                proj_2_title:"Analyse Olist E-commerce", proj_2_desc:"Analyse de la satisfaction client et KPIs logistiques. Dashboard interactif.",
+                proj_3_title:"Risque Crédit", proj_3_desc:"Modèle de scoring bancaire (300k clients). 85% de précision prédictive.",
+                proj_4_title:"Décrochage Scolaire", proj_4_desc:"Machine Learning pour prédire les élèves à risque. Analyse des facteurs sociaux.",
+                proj_5_title:"Monitoring Stocks & Alerting", proj_5_desc:"Pipeline ETL automatisé. Prévision des ruptures, suivi financier, logs et alertes emails quotidiennes.",
+                view_project:"Voir le projet",
+                web_title:"Autres Réalisations Web", brave_desc:"Développement Fullstack.", visit:"Visiter", pastel_desc:"Site créatif & Projet personnel.",
+                edu_title:"Parcours Académique", edu_1_date:"Depuis Oct. 2025", edu_2_title:"Bachelor Ingénierie logicielle",
+                interests_title:"Centres d'intérêt", int_1_title:"Art & Créativité", int_1_desc:"Peinture, Tricot, Design.",
+                int_2_title:"Veille Tech", int_2_desc:"IA Générative, Data Engineering.", footer:"Fait avec du code."
             },
             en: {
-                contact_btn: "Contact me",
-                hero_subtitle: "Junior Data Engineer | Junior Data Analyst. <br> I transform raw data into growth levers through automated pipelines.",
-                skills_title: "Technical Skills",
-                soft_skills_title: "Soft Skills",
-                soft_1: "Analytical Mindset",
-                soft_2: "Autonomy & Prioritization",
-                soft_3: "Teamwork & Communication",
-                projects_title: "Data Projects",
-                proj_1_title: "Market Intelligence",
-                proj_1_desc: "100% autonomous ETL pipeline. Scraping, cleaning, and Power BI dashboarding.",
-                view_code: "View Code",
-                proj_2_title: "Olist E-commerce Analysis",
-                proj_2_desc: "Customer satisfaction analysis and logistics KPIs. Interactive dashboard.",
-                view_project: "View Project",
-                proj_3_title: "Credit Risk Scoring",
-                proj_3_desc: "Bank scoring model (300k clients). 85% predictive accuracy.",
-                proj_4_title: "Student Dropout Prediction",
-                proj_4_desc: "Machine Learning to predict at-risk students. Social factor analysis.",
-                proj_5_title: "Stock Monitoring & Alerting",
-                proj_5_desc: "Automated ETL pipeline. Stockout forecasting, financial tracking, logging, and daily batch email alerts.",
-                web_title: "Other Web Projects",
-                brave_desc: "Fullstack Development.",
-                visit: "Visit",
-                pastel_desc: "Creative site & Personal project.",
-                exp_title: "Professional Experience",
-                exp_1_date: "April 2025 - August 2025",
-                exp_1_desc: "• Design of REST APIs for media stream ingestion and distribution.<br>• Development of optimized SQL queries for decision-making dashboards (~300ms response time)<br>• Automation of ingestion pipeline on AWS S3 with quality controls ensuring data reliability",
-                exp_2_date: "Oct 2024 - April 2025",
-                exp_2_desc: "• Management and maintenance of relational databases (PostgreSQL, MySQL) ensuring data availability and consistency.<br>• Development of real-time API flows between mobile apps and central server.<br>• Data cleaning and maintenance in Python, significantly reducing manual operations.",
-                exp_3_title: "Web Developer (Intern)",
-                exp_3_date: "July 2023 - Nov 2023",
-                exp_3_desc: "• Automated ingestion of financial data via payment APIs to MySQL.<br>• Drafting technical documentation on data flows and SQL procedures.",
-                edu_title: "Education",
-                edu_1_date: "Since Oct. 2025",
-                edu_2_title: "Bachelor in Software Engineering",
-                interests_title: "Interests",
-                int_1_title: "Art & Creativity",
-                int_1_desc: "Painting, Knitting, Design.",
-                int_2_title: "Tech Watch",
-                int_2_desc: "Generative AI, Data Engineering.",
-                footer: "Made with code."
+                contact_btn:"Contact me", nav_skills:"Skills", nav_projects:"Projects", nav_edu:"Education",
+                hero_badge:"Available · Apprenticeship Sept. 2026",
+                hero_subtitle:"Data Engineer · Data Analyst<br>I transform raw data into growth levers through automated pipelines.",
+                skills_title:"Technical Skills", soft_skills_title:"Soft Skills",
+                soft_1:"Analytical Mindset", soft_2:"Autonomy & Prioritization", soft_3:"Teamwork & Communication",
+                projects_title:"Data Projects",
+                proj_1_title:"Market Intelligence", proj_1_desc:"100% autonomous ETL pipeline. Scraping, cleaning, and Power BI dashboarding.", view_code:"View Code",
+                proj_2_title:"Olist E-commerce Analysis", proj_2_desc:"Customer satisfaction analysis and logistics KPIs. Interactive dashboard.",
+                proj_3_title:"Credit Risk Scoring", proj_3_desc:"Bank scoring model (300k clients). 85% predictive accuracy.",
+                proj_4_title:"Student Dropout Prediction", proj_4_desc:"Machine Learning to predict at-risk students. Social factor analysis.",
+                proj_5_title:"Stock Monitoring & Alerting", proj_5_desc:"Automated ETL pipeline. Stockout forecasting, financial tracking, logging and daily batch email alerts.",
+                view_project:"View Project",
+                web_title:"Other Web Projects", brave_desc:"Fullstack Development.", visit:"Visit", pastel_desc:"Creative site & Personal project.",
+                edu_title:"Education", edu_1_date:"Since Oct. 2025", edu_2_title:"Bachelor in Software Engineering",
+                interests_title:"Interests", int_1_title:"Art & Creativity", int_1_desc:"Painting, Knitting, Design.",
+                int_2_title:"Tech Watch", int_2_desc:"Generative AI, Data Engineering.", footer:"Made with code."
             }
         };
-
         function toggleLanguage() {
             currentLang = currentLang === 'fr' ? 'en' : 'fr';
             document.getElementById('lang-display').innerText = currentLang === 'fr' ? 'EN' : 'FR';
-            
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[currentLang][key]) {
-                    el.innerHTML = translations[currentLang][key];
-                }
+                if (translations[currentLang][key]) el.innerHTML = translations[currentLang][key];
             });
         }
     </script>
